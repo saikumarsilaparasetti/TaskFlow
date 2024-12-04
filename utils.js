@@ -1,6 +1,6 @@
 const utils = {
-    successResponse: (res, data, message = "Success") => {
-		return res.status(200).json({
+    successResponse: ( res, data, message = "Success",  status = 200) => {
+		return res.status(status).json({
 			message,
 			data,
 		});

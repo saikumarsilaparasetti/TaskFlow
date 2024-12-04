@@ -4,5 +4,17 @@
     "title": "Buy groceries",
     "description": "Get milk, eggs, and bread",
     "status": "pending"
+  },
+  {
+    "id": "3be97d35-6a30-4d01-837b-712d87e75044",
+    "title": "Buy groceries",
+    "description": "Get milk, eggs, and bread",
+    "status": "completed"
+  },
+  {
+    "id": "a62e817d-7271-4d16-bee5-93a56016e575",
+    "title": "Buy groceries",
+    "description": "Get milk, eggs, and bread",
+    "status": "pending"
   }
 ]

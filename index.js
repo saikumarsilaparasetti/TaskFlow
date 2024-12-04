@@ -8,6 +8,10 @@ app.listen(process.env.PORT, () => {
     console.log(
         `Server is running on port ${process.env.PORT}`
     );
+    app.use("*", (req, res, next) => {
+        console.log("=>", req.method, req.originalUrl);
+        next();
+    });
     app.use('/', router);
     // console.log = () => { }
 });

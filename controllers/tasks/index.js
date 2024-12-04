@@ -17,7 +17,7 @@ const controller  = {
                 status:"pending"
             }
             const taskCreated = services.addTask(task)
-            return taskCreated ? successResponse(res, task, "Task created successfully") : errorResponse(res, undefined, "Couldnt create task, Please try again!!")
+            return taskCreated ? successResponse(res, task, "Task created successfully",201) : errorResponse(res, undefined, "Couldnt create task, Please try again!!")
         } catch (error) {
             errorResponse(res, error, "Couldnt create user, Please try again!!")
         }
@@ -37,7 +37,9 @@ const controller  = {
             if(!status){
                 return errorResponse(res, undefined, "Please provide status")
             }
-
+            if(!['pending', 'completed'].includes(status)){
+                return errorResponse(res, undefined, "Please provide valid status")
+            }
             const tasks = services.readData()
             const taskIndex = tasks.findIndex(task=>task.id === id)
             if(taskIndex === -1){
@@ -71,6 +73,9 @@ const controller  = {
             const status = req.params.status
             if(!status){
                 return errorResponse(res, undefined, "Please provide status")
+            }
+            if(!['pending', 'completed'].includes(status)){
+                return errorResponse(res, undefined, "Please provide valid status")
             }
 
             const tasks = services.readData()
